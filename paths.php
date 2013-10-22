@@ -18,8 +18,8 @@ if (!$_SESSION['logged']) header('Location: ./index.php');
 <!-- панель управления -->
 <div class="wrap panel-wrap" id="panel" style="position: relative;">
 <div style="position: absolute; right: 25px; top: 15px;"><a href="center.php">Список маршрутов</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="logout.php">Выход</a></div>
-	<div style="float: right; width: 390px; margin-right: 60px; margin-top: 5px;">Во избежание утечки личных данных каждому машинисту присвоен секреный код. Посмотреть личные данные можно только при наличии этого кода.</div>
-<input type="text" id="driver" placeholder="Имя машиниста" style="width: 300px;"/>
+	<div style="float: right; width: 390px; margin-right: 60px; margin-top: 15px;">Чтобы посмотреть подробную информацию о маршруте, необходимо ввести специальный код.</div>
+<input type="text" id="driver" placeholder="Номер маршрута" style="width: 300px;"/>
 <br>
 <input type="text" id="secret" placeholder="Секретный код" style="width: 300px;"/>
 <a href="#" class="btn btn-success" id="look">Просмотр</a>
@@ -34,8 +34,14 @@ if (!$_SESSION['logged']) header('Location: ./index.php');
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script>
 $('#look').click(function() {
+$('table').hide();
 	$.ajax({ url: './info.php?driver='+encodeURIComponent($('#driver').val())+'&secret='+encodeURIComponent($('#secret').val()) }).done(function(data) {
+		if (/\<tr\>/.test(data))
+			$('table').css('color', 'white');
+		else
+			$('table').css('color', '#D68685');
 		$('table').html(data);
+		$('table').fadeIn(200);
 	});
 });
 </script>
