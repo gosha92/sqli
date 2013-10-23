@@ -26,13 +26,6 @@ if (!$_SESSION['logged']) header('Location: ./index.php');
 	<div style="padding-top: 30px; height: 100px; width: 730px; margin-top: 30px; border-top: 1px solid white;">
 
 	<div id="main_content">
-	<table>
-	<tr><td>Машинист:</td><td>Иван Петров</td></tr>
-	<tr><td>Время в пути:</td><td>12:04:33</td></tr>
-	<tr><td>Количество вагонов:</td><td>14</td></tr>
-	<tr><td>Номер для связи:</td><td>11-098-115</td></tr>
-	</table>
-	<img src="./images/1.jpg" />
 	</div>
 
 	</div>
