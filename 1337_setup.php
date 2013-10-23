@@ -35,7 +35,7 @@ foreach ($A as &$query) {
 	if ($query == '') continue;
     mysql_query($query);
 	if ($E = mysql_error())
-		echo $E.'<br>';
+		echo $query.' : '.$E.'<br>';
 }
 
 mysql_select_db($database, $dbhandle) or die(mysql_error());
