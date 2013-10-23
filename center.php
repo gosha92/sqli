@@ -16,7 +16,7 @@ if (!$_SESSION['logged']) header('Location: ./index.php');
 <br><br>
 <div class="alert alert-success" id="alert"><strong>Вход выполнен! </strong><?php echo $_SESSION['login'] ?>, добро пожаловать в информационный центр.</div>
 <!-- панель управления -->
-<div class="wrap panel-wrap" id="panel" style="position: relative;">
+<div class="wrap panel-wrap" id="panel" style="position: relative; padding-top: 70px;">
 <div style="position: absolute; right: 25px; top: 15px;"><a href="paths.php">Подробная информация о маршруте</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="logout.php">Выход</a></div>
 	<div class="input-append" style="padding-top: 5px;">
 		<input type="text" id="search_text">
@@ -34,7 +34,7 @@ if (!$_SESSION['logged']) header('Location: ./index.php');
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script>
 function request() {
-$('table').hide();
+	$('table').hide();
 	$.ajax({ url: './trains.php?search='+encodeURIComponent($('#search_text').val()) }).done(function(data) {
 		if (/\<tr\>/.test(data))
 			$('table').css('color', 'white');
@@ -46,6 +46,14 @@ $('table').hide();
 }
 
 $('#search').click(request);
+$('input').keypress(function(e){if(e.which == 13) {
+	request();
+}});
+
+$(function(){
+	request();
+	$('#search_text').focus()
+});
 </script>
 <!-- -->
 </body>

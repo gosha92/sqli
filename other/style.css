@@ -30,7 +30,7 @@ input{outline:none!important;} /*IE*/
 .panel-wrap
 {
 	width: 800px;
-	height: 350px;
+	height: 370px;
 	margin: 40px auto 0;
 	color: white;
 }
@@ -50,4 +50,23 @@ td
 a:hover
 {
 	color: gray;
+}
+
+
+
+
+#main_content
+{
+	position: relative;
+}
+#main_content td
+{
+	width: 200px;
+}
+#main_content img 
+{
+	width: 295px;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
