@@ -14,7 +14,7 @@ if (!$_SESSION['logged']) header('Location: ./index.php');
 <body>
 <!-- полоса состояния -->
 <br><br>
-<div class="alert alert-success" id="alert"><strong>Вход выполнен!</strong> Добро пожаловать в информационный центр.</div>
+<div class="alert alert-success" id="alert"><strong>Вход выполнен! </strong><?php echo $_SESSION['login'] ?>, добро пожаловать в информационный центр.</div>
 <!-- панель управления -->
 <div class="wrap panel-wrap" id="panel" style="position: relative;">
 <div style="position: absolute; right: 25px; top: 15px;"><a href="paths.php">Подробная информация о маршруте</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="logout.php">Выход</a></div>

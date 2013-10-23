@@ -46,8 +46,8 @@ if ($_SESSION['logged']) header('Location: ./center.php');
 <script src="other/jquery-1.10.2.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script>
-function loginSuccess() {
-	$('#alert').addClass('alert-success').html('<strong>Вход выполнен!</strong> Добро пожаловать в информационный центр.');
+function loginSuccess(l) {
+	$('#alert').addClass('alert-success').html('<strong>Вход выполнен! </strong>'+l+', добро пожаловать в информационный центр.');
 	$('#login-block').fadeOut(function() {
 		$('#panel').fadeIn();
 	});
@@ -66,10 +66,10 @@ $('#send').click(function() {
 		return false;
 	}
 	$.ajax({ url: './login.php?login='+encodeURIComponent($('#log').val())+'&password='+encodeURIComponent($('#pas').val()) }).done(function(data) {
-		if (data === '1')
-			loginSuccess();
-		else
+		if (data === '0')
 			loginError();
+		else
+			loginSuccess(data);
 	});
 });
 

@@ -14,12 +14,12 @@ if (!$_SESSION['logged']) header('Location: ./index.php');
 <body>
 <!-- полоса состояния -->
 <br><br>
-<div class="alert alert-success" id="alert"><strong>Вход выполнен!</strong> Добро пожаловать в информационный центр.</div>
+<div class="alert alert-success" id="alert"><strong>Вход выполнен! </strong> <?php echo $_SESSION['login'] ?>, добро пожаловать в информационный центр.</div>
 <!-- панель управления -->
 <div class="wrap panel-wrap" id="panel" style="position: relative;">
 <div style="position: absolute; right: 25px; top: 15px;"><a href="center.php">Список маршрутов</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="logout.php">Выход</a></div>
 	<div style="float: right; width: 390px; margin-right: 60px; margin-top: 15px;">Чтобы посмотреть подробную информацию о маршруте, необходимо ввести специальный код.</div>
-<input type="text" id="driver" placeholder="Номер маршрута" style="width: 300px;"/>
+<input type="text" id="number" placeholder="Номер маршрута" style="width: 300px;"/>
 <br>
 <input type="text" id="secret" placeholder="Секретный код" style="width: 300px;"/>
 <a href="#" class="btn btn-success" id="look">Просмотр</a>
@@ -35,8 +35,8 @@ if (!$_SESSION['logged']) header('Location: ./index.php');
 <script>
 $('#look').click(function() {
 $('table').hide();
-	$.ajax({ url: './info.php?driver='+encodeURIComponent($('#driver').val())+'&secret='+encodeURIComponent($('#secret').val()) }).done(function(data) {
-		if (/\<tr\>/.test(data))
+	$.ajax({ url: './info.php?number='+encodeURIComponent($('#number').val())+'&secret='+encodeURIComponent($('#secret').val()) }).done(function(data) {
+		if (/\<p\>/.test(data))
 			$('table').css('color', 'white');
 		else
 			$('table').css('color', '#D68685');

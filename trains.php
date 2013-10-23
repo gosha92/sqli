@@ -1,15 +1,9 @@
 <?php
 @session_start();
-if (!$_SESSION['logged']) header('Location: /index.php');
+if (!$_SESSION['logged']) header('Location: ./index.php');
+require_once('./db_connect.php');
 
 $s = $_GET['search'];
-
-/* */
-$database = "vokzal";
-$username = "root";
-$password = "";
-$hostname = "localhost";
-/* */
 
 $dbhandle = mysql_connect($hostname, $username, $password) or die("Unable to connect to MySQL.");
 $selected = mysql_select_db($database, $dbhandle) or die("Could not select database.");

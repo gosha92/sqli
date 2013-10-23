@@ -12,7 +12,7 @@ login char(20),
 password char(32)
 );
 
-INSERT INTO users (login, password) VALUES ('admin', '9ca62edac6b2ee917a62fd51e4381b69');
+INSERT INTO users (login, password) VALUES ('admin', '9ca62edac6b2ee917a62fd51e4381b69'), ('serega', '200820e3227815ed1756a6b531e7e0d2');
 
 CREATE TABLE trains (
 num char(10),
@@ -26,7 +26,16 @@ INSERT INTO trains (num, time_to, time_from, punkt, secret) VALUES ('1056', '19:
 
 CREATE TABLE additional (
 secret char(32),
-driver char(50)
+driver char(50),
+vagons char(10),
+time_  char(10),
+img char(10)
 );
 
-INSERT INTO additional (secret, driver) VALUES ('c93ad9669fd843c3abc0be5183c350f1', 'Ivan Petrov');
+INSERT INTO additional (secret, driver, vagons, time_, img) VALUES ('c93ad9669fd843c3abc0be5183c350f1', 'Pafnuty Chebyshev', '14', '12:45:11', '1'), ('828a1f0e9546e907ecfa7dcfa1e06745', 'Edsger Wybe Dijkstra', '20', '1:05:01', '2'), ('dc6231b1db1454d806aaf73b64d7923c', 'Évariste Galois', '21', '5:31:01', '3'), ('9921f60b13814e58426343b878d112ff', 'Gottfried Wilhelm Leibniz', '11', '08:15:52', '4'), ('67bae590bd66bf30bc9e59a1cb8e1592', 'Pythagoras', '13', '07:33:01', '5');
+
+INSERT INTO additional (secret, driver, vagons, time_, img) VALUES ('cd057c5126f070841df31a875371fb93', 'Pafnuty Chebyshev', '14', '12:45:11', '1'), ('cd057c5126f070841df31a875371fb93', 'Edsger Wybe Dijkstra', '20', '1:05:01', '2'), ('cd057c5126f070841df31a875371fb93', 'Évariste Galois', '21', '5:31:01', '3'), ('9921f60b13814e58426343b878d112ff', 'Gottfried Wilhelm Leibniz', '11', '08:15:52', '4'), ('a8dbac4b32b06a02a8d139d85f8fce29', 'Pythagoras', '13', '07:33:01', '5');
+
+INSERT INTO additional (secret, driver, vagons, time_, img) VALUES ('1da93ead8f608c95666c63f33a0c0c06', 'Pafnuty Chebyshev', '14', '12:45:11', '1'), ('1bb7443d327ba914fc05c7c858937471', 'Edsger Wybe Dijkstra', '20', '1:05:01', '2'), ('d1ee46d04f56a7e72f2ef87b05e79c06', 'Évariste Galois', '21', '5:31:01', '3'), ('8af9005666d0f70bbe995be85b8cb73b', 'Gottfried Wilhelm Leibniz', '11', '08:15:52', '4'), ('814fe5a684dcc3fcab34406a78400548', 'Pythagoras', '13', '07:33:01', '5');
+
+INSERT INTO additional (secret, driver, vagons, time_, img) VALUES ('6c0b3c0735218a0f33fe0a0cf91a569d', 'Pafnuty Chebyshev', '14', '12:45:11', '1');
